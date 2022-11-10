@@ -7,8 +7,16 @@
     <bean id="personDao" class="com.github.o0white0o.spring.demo1.dao.PersonDaoImpl">
     </bean>
 
+    <bean id="personDaoWithDef" class="com.github.o0white0o.spring.demo1.dao.PersonDaoImpl">
+        <property name="defaultAge" value="27"/>
+    </bean>
+
     <bean id="personService" class="com.github.o0white0o.spring.demo1.service.PersonServiceImpl">
         <constructor-arg name="personDao" ref="personDao"/>
+    </bean>
+
+    <bean id="personServiceWithProp" class="com.github.o0white0o.spring.demo1.service.PersonServiceImpl">
+        <constructor-arg name="personDao" ref="personDaoWithDef"/>
     </bean>
 
 </beans>
