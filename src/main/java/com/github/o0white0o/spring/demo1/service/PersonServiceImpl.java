@@ -5,7 +5,9 @@ import com.github.o0white0o.spring.demo1.domain.Person;
 
 public class PersonServiceImpl implements IPersonService{
 
-private final IPersonDao personDao;
+private IPersonDao personDao;
+
+public PersonServiceImpl() {}
 
 public PersonServiceImpl(IPersonDao personDao) {
     this.personDao = personDao;
@@ -14,6 +16,10 @@ public PersonServiceImpl(IPersonDao personDao) {
 @Override
 public Person getByName(String name) {
     return personDao.findByName(name);
+}
+
+public void setPersonDao(IPersonDao personDao) {
+    this.personDao = personDao;
 }
 
 }
